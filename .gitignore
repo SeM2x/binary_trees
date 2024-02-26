@@ -1,3 +1,5 @@
 *main.c
 *.o
 *.exe
+binary_tree_print.c
+makefile
