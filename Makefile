@@ -2,7 +2,7 @@
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=gnu89
-RM = rf -f
+RM = del
 
 SRC := $(wildcard [0-9]*-binary*.c)
 
