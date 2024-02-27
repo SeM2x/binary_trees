@@ -8,7 +8,9 @@
  * @max: max value of the tree
  * Return: 0 or 1.
  */
-int binary_tree_is_bst_helper(const binary_tree_t *node, const binary_tree_t *min, const binary_tree_t *max)
+int binary_tree_is_bst_helper(const binary_tree_t *node,
+							  const binary_tree_t *min,
+							  const binary_tree_t *max)
 {
 	if (!node)
 		return (1);
@@ -29,5 +31,5 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return binary_tree_is_bst_helper(tree, NULL, NULL);
+	return (binary_tree_is_bst_helper(tree, NULL, NULL));
 }
