@@ -11,10 +11,10 @@
 int binary_tree_is_bst_helper(const binary_tree_t *node, const binary_tree_t *min, const binary_tree_t *max)
 {
 	if (!node)
-		return 1;
+		return (1);
 
 	if ((min && node->n <= min->n) || (max && node->n >= max->n))
-		return 0;
+		return (0);
 
 	return (binary_tree_is_bst_helper(node->left, min, node) &&
 			binary_tree_is_bst_helper(node->right, node, max));
