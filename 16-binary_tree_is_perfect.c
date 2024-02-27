@@ -37,27 +37,29 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * pow - claculates base to the power of exponent 
- * 
+ * pow - claculates base to the power of exponent
+ *
  * @base: base
  * @exponent: exponent
- * Return: base to the power of exponent  
+ * Return: base to the power of exponent
  */
-double pow(double base, int exponent) {
-    double result = 1.0;
-    int i;
+double _pow(double base, int exponent)
+{
+	double result = 1.0;
+	int i;
 
-    if (exponent >= 0) {
-        for (i = 0; i < exponent; i++) {
-            result *= base;
-        }
-    } else {
-        for (i = 0; i > exponent; i--) {
-            result /= base;
-        }
-    }
+	if (exponent >= 0)
+	{
+		for (i = 0; i < exponent; i++)
+			result *= base;
+	}
+	else
+	{
+		for (i = 0; i > exponent; i--)
+			result /= base;
+	}
 
-    return (result);
+	return (result);
 }
 
 /**
@@ -68,5 +70,5 @@ double pow(double base, int exponent) {
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	return (binary_tree_size(tree) == pow(2, binary_tree_height(tree)) - 1);
+	return (binary_tree_size(tree) == _pow(2, binary_tree_height(tree)) - 1);
 }
