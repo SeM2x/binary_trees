@@ -13,7 +13,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	if (binary_tree_is_leaf(tree))
+	if (binary_tree_is_root(tree) && binary_tree_is_leaf(tree))
 		return (1);
 
 	if (tree->left)
