@@ -37,6 +37,30 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
+ * pow - claculates base to the power of exponent 
+ * 
+ * @base: base
+ * @exponent: exponent
+ * Return: base to the power of exponent  
+ */
+double pow(double base, int exponent) {
+    double result = 1.0;
+    int i;
+
+    if (exponent >= 0) {
+        for (i = 0; i < exponent; i++) {
+            result *= base;
+        }
+    } else {
+        for (i = 0; i > exponent; i--) {
+            result /= base;
+        }
+    }
+
+    return (result);
+}
+
+/**
  * binary_tree_is_perfect - checks if a binary tree is perfect
  *
  * @tree: pointer to the root node of the tree to check
