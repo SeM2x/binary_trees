@@ -9,8 +9,8 @@
  * Return: 0 or 1.
  */
 int _binary_tree_is_bst_helper(const binary_tree_t *node,
-							  const binary_tree_t *min,
-							  const binary_tree_t *max)
+							   const binary_tree_t *min,
+							   const binary_tree_t *max)
 {
 	if (!node)
 		return (1);
