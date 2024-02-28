@@ -26,7 +26,7 @@ bst_t *_bst_search(const bst_t *tree, int value)
  *
  * @root: a pointer to the root node of the tree.
  * @value: the value to remove in the tree
- * @return  a pointer to the new root node of the tree
+ * Return:  a pointer to the new root node of the tree
  * after removing the desired value
  */
 bst_t *bst_remove(bst_t *root, int value)
