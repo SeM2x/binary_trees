@@ -1,31 +1,31 @@
 #include "binary_trees.h"
 
 /**
- * _binary_tree_leaves - counts the leaves in a binary tree
+ * __binary_tree_leaves - counts the leaves in a binary tree
  *
  * @tree: pointer to the root node of the tree
  * Return: number of leaves
  */
-size_t _binary_tree_leaves(const binary_tree_t *tree)
+size_t __binary_tree_leaves(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
 	if (!tree->left && !tree->right)
 		return (1);
-	return (_binary_tree_leaves(tree->left) + _binary_tree_leaves(tree->right));
+	return (__binary_tree_leaves(tree->left) + __binary_tree_leaves(tree->right));
 }
 
 /**
- * _binary_tree_size - measures the size of a binary tree
+ * __binary_tree_size - measures the size of a binary tree
  *
  * @tree: pointer to the root node of the tree to measure the size
  * Return: size of the tree
  */
-size_t _binary_tree_size(const binary_tree_t *tree)
+size_t __binary_tree_size(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
-	return (1 + _binary_tree_size(tree->left) + _binary_tree_size(tree->right));
+	return (1 + __binary_tree_size(tree->left) + __binary_tree_size(tree->right));
 }
 
 /**
@@ -37,7 +37,7 @@ size_t _binary_tree_size(const binary_tree_t *tree)
 
 size_t _binary_tree_nodes(const binary_tree_t *tree)
 {
-	return (_binary_tree_size(tree) - _binary_tree_leaves(tree));
+	return (__binary_tree_size(tree) - __binary_tree_leaves(tree));
 }
 
 /**
@@ -48,5 +48,5 @@ size_t _binary_tree_nodes(const binary_tree_t *tree)
  */
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	return (_binary_tree_leaves(tree) == _binary_tree_nodes(tree) + 1);
+	return (__binary_tree_leaves(tree) == _binary_tree_nodes(tree) + 1);
 }

@@ -4,11 +4,12 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic -std=gnu89
 RM = del
 
-SRC := $(wildcard [0-9]*-binary*.c)
+SRC := $(wildcard [0-9]*-*.c)
 
 all: 
-	$(CC) $(CFLAGS) $(SRC) main.c binary_tree_print.c -o exe -lm
-
+	@echo building...
+	@$(CC) $(CFLAGS) $(SRC) main.c binary_tree_print.c -o exe
+	@echo done.
 clean:
 	$(RM) *.exe
 
