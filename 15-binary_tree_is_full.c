@@ -16,18 +16,6 @@ size_t _binary_tree_leaves(const binary_tree_t *tree)
 }
 
 /**
- * _binary_tree_nodes - counts the nodes with at least 1 child in a binary tree
- *
- * @tree: pointer to the root node of the tree
- * Return: number of nodes
- */
-
-size_t _binary_tree_nodes(const binary_tree_t *tree)
-{
-	return (_binary_tree_size(tree) - _binary_tree_leaves(tree));
-}
-
-/**
  * _binary_tree_size - measures the size of a binary tree
  *
  * @tree: pointer to the root node of the tree to measure the size
@@ -38,6 +26,18 @@ size_t _binary_tree_size(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 	return (1 + _binary_tree_size(tree->left) + _binary_tree_size(tree->right));
+}
+
+/**
+ * _binary_tree_nodes - counts the nodes with at least 1 child in a binary tree
+ *
+ * @tree: pointer to the root node of the tree
+ * Return: number of nodes
+ */
+
+size_t _binary_tree_nodes(const binary_tree_t *tree)
+{
+	return (_binary_tree_size(tree) - _binary_tree_leaves(tree));
 }
 
 /**
