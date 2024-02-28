@@ -1,6 +1,59 @@
 #include "binary_trees.h"
 
 /**
+ * _binary_tree_height_ - measures the height of a binary tree
+ *
+ * @tree:  pointer to the root node of the tree to measure the height.
+ * Return: the height of the tree
+ */
+size_t _binary_tree_height_(const binary_tree_t *tree)
+{
+	size_t left_height = 0, right_height = 0;
+
+	if (!tree)
+		return (0);
+
+	if (tree->left)
+		left_height = 1 + _binary_tree_height_(tree->left);
+	if (tree->right)
+		right_height = 1 + _binary_tree_height_(tree->right);
+
+	if (left_height > right_height)
+		return (left_height);
+	return (right_height);
+}
+
+/**
+ * _binary_tree_balance - measures the balance factor of a binary tree
+ *
+ * @tree: pointer to the root node of the tree
+ * Return: the balance factor
+ */
+int _binary_tree_balance(const binary_tree_t *tree)
+{
+	int left_height = 0, right_height = 0;
+	binary_tree_t *node = (binary_tree_t *)tree, *tmp;
+
+	if (!tree)
+		return (0);
+
+	tmp = node->right;
+	node->right = NULL;
+	left_height = _binary_tree_height_(tree);
+
+	node->right = tmp;
+	tmp = node->left;
+	node->left = NULL;
+	right_height = _binary_tree_height_(tree);
+
+	node->left = tmp;
+	tmp = NULL;
+	node = NULL;
+
+	return (left_height - right_height);
+}
+
+/**
  * _binary_tree_is_bst_helper - _binary_tree_is_bst helper function
  *
  * @node: pointer to the root node
@@ -41,7 +94,7 @@ int _binary_tree_is_bst(const binary_tree_t *tree)
  */
 int binary_tree_is_avl_helper(const binary_tree_t *tree)
 {
-	int balance = binary_tree_balance(tree);
+	int balance = _binary_tree_balance(tree);
 
 	if (!tree)
 		return (1);
