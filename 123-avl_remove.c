@@ -73,10 +73,10 @@ bst_t *bst_remove(bst_t *root, int value)
 }
 
 /**
- * @brief
+ * avl_balance - balances a bst
  *
- * @param root
- * @return avl_t*
+ * @root: a pointer to the root of the tree
+ * Return: a pointer to the root of the balanced tree, or NULL.
  */
 avl_t *avl_balance(avl_t *root)
 {
