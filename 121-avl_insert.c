@@ -20,7 +20,7 @@ bst_t *_bst_insert(bst_t **tree, int value)
 	if (value > (*tree)->n)
 		node = _bst_insert(&(*tree)->right, value);
 	else if (value < (*tree)->n)
-		node = (_bst_insert(&(*tree)->left, value));
+		node = _bst_insert(&(*tree)->left, value);
 	else
 		return (NULL);
 
@@ -56,7 +56,7 @@ avl_t *avl_insert(avl_t **tree, int value)
 				tmp = binary_tree_rotate_right(tmp);
 			else
 			{
-				tmp->left = binary_tree_rotate_left(tmp->left);
+				binary_tree_rotate_left(tmp->left);
 				tmp = binary_tree_rotate_right(tmp);
 			}
 		}
@@ -66,11 +66,13 @@ avl_t *avl_insert(avl_t **tree, int value)
 				tmp = binary_tree_rotate_left(tmp);
 			else
 			{
-				tmp->right = binary_tree_rotate_right(tmp->right);
+				binary_tree_rotate_right(tmp->right);
 				tmp = binary_tree_rotate_left(tmp);
 			}
 		}
 
+		if (!tmp->parent)
+			*tree = tmp;
 		tmp = tmp->parent;
 	}
 
