@@ -2,4 +2,3 @@
 *.o
 *.exe
 binary_tree_print.c
-Makefile
