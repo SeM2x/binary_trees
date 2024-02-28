@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_bst_helper - binary_tree_is_bst helper function 
+ * binary_tree_is_bst_helper - binary_tree_is_bst helper function
  *
  * @node: pointer to the root node
  * @min: min value of the tree
