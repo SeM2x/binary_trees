@@ -2,7 +2,6 @@
 
 /**
  * array_to_avl - builds an AVL tree from an array
- *
  * @array: a pointer to the first element of the array to be converted
  * @size: the number of element in the array
  *
