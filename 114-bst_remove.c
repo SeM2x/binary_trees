@@ -10,15 +10,15 @@
 bst_t *_bst_search(const bst_t *tree, int value)
 {
 
-	if (!tree)
-		return (NULL);
+    if (!tree)
+        return (NULL);
 
-	if (tree->n < value)
-		return (_bst_search(tree->right, value));
-	if (tree->n > value)
-		return (_bst_search(tree->left, value));
+    if (tree->n < value)
+        return (_bst_search(tree->right, value));
+    if (tree->n > value)
+        return (_bst_search(tree->left, value));
 
-	return ((bst_t *)tree);
+    return ((bst_t *)tree);
 }
 
 /**
@@ -42,7 +42,7 @@ bst_t *bst_remove(bst_t *root, int value)
         min = node->right;
         while (min->left)
             min = min->left;
-        if (min->parent != node)    
+        if (min->parent != node)
             min->parent->left = min->right;
         else
             node->right = min->right;
