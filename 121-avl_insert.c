@@ -53,21 +53,21 @@ avl_t *avl_insert(avl_t **tree, int value)
 		if (balance > 1)
 		{
 			if (value < tmp->left->n)
-				binary_tree_rotate_right(tmp);
+				tmp = binary_tree_rotate_right(tmp);
 			else
 			{
-				binary_tree_rotate_left(tmp->left);
-				binary_tree_rotate_right(tmp);
+				tmp->left = binary_tree_rotate_left(tmp->left);
+				tmp = binary_tree_rotate_right(tmp);
 			}
 		}
 		else if (balance < -1)
 		{
 			if (value > tmp->right->n)
-				binary_tree_rotate_left(tmp);
+				tmp = binary_tree_rotate_left(tmp);
 			else
 			{
-				binary_tree_rotate_right(tmp->right);
-				binary_tree_rotate_left(tmp);
+				tmp->right = binary_tree_rotate_right(tmp->right);
+				tmp = binary_tree_rotate_left(tmp);
 			}
 		}
 
