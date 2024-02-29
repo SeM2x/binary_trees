@@ -12,7 +12,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *tree, *node;
 
-	if (size % 2 == 0)
+	if (size % 2 == 0 && size > 2)
 	{
 		tree = sorted_array_to_avl(array, size - 1);
 		node = tree;
