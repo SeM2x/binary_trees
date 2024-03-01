@@ -42,7 +42,7 @@ void heapify_down(heap_t *root, heap_t *node)
  * heap_extract - extracts the root node of a Max Binary Heap
  *
  * @root: a double pointer to the root node of heap
- * @return the value stored in the root node
+ * Return: the value stored in the root node
  */
 int heap_extract(heap_t **root)
 {
@@ -56,6 +56,7 @@ int heap_extract(heap_t **root)
 
 	if (!(*root)->parent && !(*root)->left && !(*root)->right)
 	{
+		free(*root);
 		*root = NULL;
 		return (value);
 	}
