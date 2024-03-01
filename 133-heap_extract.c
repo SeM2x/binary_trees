@@ -53,6 +53,13 @@ int heap_extract(heap_t **root)
 		return (0);
 
 	value = (*root)->n;
+
+	if (!(*root)->parent && !(*root)->left && !(*root)->right)
+	{
+		*root = NULL;
+		return (value);
+	}
+
 	queue = malloc(sizeof(heap_t *));
 	*queue = *root;
 	rear++;

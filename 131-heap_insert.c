@@ -82,16 +82,16 @@ char *convert(unsigned long int num, int base, int lowercase)
 }
 
 /**
- * binary_tree_size - measures the size of a binary tree
+ * binary_tree_size_ - measures the size of a binary tree
  * @tree: input binary tree
  * Return: number of descendant child nodes
  */
-size_t binary_tree_size(const binary_tree_t *tree)
+size_t binary_tree_size_(const binary_tree_t *tree)
 {
 	if (!tree)
 		return (0);
 
-	return (1 + binary_tree_size(tree->left) + binary_tree_size(tree->right));
+	return (1 + binary_tree_size_(tree->left) + binary_tree_size_(tree->right));
 }
 
 /**
@@ -108,7 +108,7 @@ void insert(heap_t **root, heap_t *node)
 	char c;
 
 	tmp = *root;
-	size = binary_tree_size(tmp) + 1;
+	size = binary_tree_size_(tmp) + 1;
 	binary = convert(size, 2, 1);
 	for (i = 1; i < strlen(binary); i++)
 	{
