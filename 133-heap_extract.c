@@ -1,11 +1,11 @@
 #include "binary_trees.h"
 
 /**
- * swap_nodes - Swaps values between two nodes
+ * swap_nodes_values - Swaps values between two nodes
  * @node1: First node
  * @node2: Second node
  */
-void swap_nodes(heap_t *node1, heap_t *node2)
+void swap_nodes_values(heap_t *node1, heap_t *node2)
 {
 	int temp;
 
@@ -33,9 +33,31 @@ void heapify_down(heap_t *root, heap_t *node)
 
 	if (largest != node)
 	{
-		swap_nodes(node, largest);
+		swap_nodes_values(node, largest);
 		heapify_down(root, largest);
 	}
+}
+
+/**
+ * replace_root - replaces the root with the last node
+ * @root: root node
+ * @node: last node of the levelorder traversal
+ */
+void replace_root(heap_t **root, heap_t *node)
+{
+	node->left = (*root)->left;
+	if (node->left)
+		node->left->parent = node;
+	node->right = (*root)->right;
+	if (node->right)
+		node->right->parent = node;
+	if (node->parent && node->parent->left == node)
+		node->parent->left = NULL;
+	else if (node->parent && node->parent->right == node)
+		node->parent->right = NULL;
+	node->parent = NULL;
+	free(*root);
+	*root = node;
 }
 
 /**
@@ -81,19 +103,8 @@ int heap_extract(heap_t **root)
 	}
 	free(queue);
 
-	node->left = (*root)->left;
-	if (node->left)
-		node->left->parent = node;
-	node->right = (*root)->right;
-	if (node->right)
-		node->right->parent = node;
-	if (node->parent && node->parent->left == node)
-		node->parent->left = NULL;
-	else if (node->parent && node->parent->right == node)
-		node->parent->right = NULL;
-	node->parent = NULL;
-	free(*root);
-	*root = node;
+	replace_root(root, node);
 	heapify_down(*root, node);
+
 	return (value);
 }
